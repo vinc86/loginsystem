@@ -2,27 +2,24 @@
 
 
 if(isset($_POST["submit"])){
-    if(!empty($_POST["usrFirst"]) || !empty($_POST["usrLast"]) || !empty($_POST["usrEmail"]) || !empty($_POST["usrCity"]) ){
-        
-        session_start();
-        
-        $first = $_POST["usrFirst"];
-        $last = $_POST["usrLast"];
-        $email = $_POST["usrEmail"];
-        $first = $_POST["usrCity"];
 
-        $_SESSION["user"] = $_POST["usrFirst"];
+    $usrName = $_POST["usrName"];
+    $usrEmail = $_POST["usrEmail"];
+    $usrPwd = $_POST["usrPwd"];
+    $ConfPwd = $_POST["confirmPwd"];
 
 
-        header("Location: ../index.php");
+    if( empty($_POST["usrName"]) || empty($_POST["usrEmail"]) || empty($_POST["usrPwd"]) || empty($_POST["confirmPwd"]) ){
+        header("Location: ../signup.php?error=emptyfields&usrname=".$usrName ."&email=".$usrEmail);
         exit();
-
-
-
-    } else {
-        header("Location: ../index.php?error=emptyfields");
+    } 
+    if(!filter_var($usrEmail, FILTER_VALIDATE_EMAIL)){
+        header("Location: ../signup.php?error=invalidemail&usrname=".$usrName);
         exit();
     }
+    if(!preg_match("/[a-zA-Z0-9]&/")){}
+       
+    
 
 
 }

@@ -24,10 +24,10 @@ session_start();
                 <input type="email" name ="usrEmail" placeholder="Email...">
             </div>
             <div class="inputGroup">
-                <input type="text" name ="usrPwd" placeholder="Password...">
+                <input type="password" name ="usrPwd" placeholder="Password...">
             </div>
             <div class="inputGroup">
-                <input type="text" name ="confirmPwd" placeholder="Confirm password...">
+                <input type="password" name ="confirmPwd" placeholder="Confirm password...">
             </div>
             <div class="inputButton">
                 <input type="submit" name ="submit" value="Register">
